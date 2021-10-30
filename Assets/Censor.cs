@@ -30,12 +30,11 @@ public class Censor : MonoBehaviour
                 activeMat = meshMaterialTriggered;
             else
                 activeMat = meshMaterial;
-            //Graphics.color = meshColor;
             Graphics.DrawMesh(mesh, transform.position, transform.rotation, activeMat, layer);
         }
     }
 
-    Mesh createMesh()
+    Mesh createBasicMesh()
     {
         Mesh mesh = new Mesh();
 
@@ -70,13 +69,14 @@ public class Censor : MonoBehaviour
         return mesh;
     }
 
-    private void OnValidate()
+    Mesh createCollisionMesh()
     {
-        mesh = createMesh();
+        Mesh mesh = new Mesh();
+        return mesh;
     }
 
-    private void OnDrawGizmos()
+    private void OnValidate()
     {
-
+        mesh = createBasicMesh();
     }
 }

@@ -14,6 +14,7 @@ public class FieldOfView : MonoBehaviour
     public LayerMask obstructionMask;
 
     public bool canSeePlayer;
+    public bool hitObstacle;
 
     private void Start()
     {
@@ -44,16 +45,27 @@ public class FieldOfView : MonoBehaviour
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                if (!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     canSeePlayer = true;
                 }
                 else
+                {
                     canSeePlayer = false;
+                }
             } else
                 canSeePlayer = false;
         }
         else if (canSeePlayer)
             canSeePlayer = false;
+
+        if (!Physics2D.Raycast(transform.position, Vector3.right, radius, obstructionMask))
+            hitObstacle = false;
+        else
+        {
+            Debug.Log("hitObstacle");
+            hitObstacle = true;
+        }
+
     }
 }
