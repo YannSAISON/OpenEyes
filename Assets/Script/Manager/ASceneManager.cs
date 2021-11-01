@@ -8,19 +8,19 @@ public abstract class ASceneManager : MonoBehaviour {
     public void MoveToMainMenuScene() {
         isPaused = false;
         Time.timeScale = 1;
-        GameManager.Instance.SceneManager.Load(SceneEnum.MainMenuScene);
+        SceneManagerController.Load(SceneEnum.MainMenuScene);
     }
 
     public void MoveToGameScene() {
         isPaused = false;
         Time.timeScale = 1;
-        GameManager.Instance.SceneManager.Load(SceneEnum.GameScene);
+        SceneManagerController.Load(SceneEnum.GameScene);
     }
-    
+
     public void MoveToOptionScene() {
         isPaused = true;
         Time.timeScale = 0;
-        GameManager.Instance.SceneManager.Load(SceneEnum.OptionScene);
+        SceneManagerController.Load(SceneEnum.OptionScene);
     }
 
     public void MoveToLeaveScene() {
@@ -32,28 +32,34 @@ public abstract class ASceneManager : MonoBehaviour {
     public void MoveToGameOverScene() {
         isPaused = false;
         Time.timeScale = 1;
-        GameManager.Instance.SceneManager.Load(SceneEnum.GameOverScene);
+        SceneManagerController.Load(SceneEnum.GameOverScene);
     }
 
     public void MoveToGameWinScene() {
         isPaused = false;
         Time.timeScale = 1;
-        GameManager.Instance.SceneManager.Load(SceneEnum.GameWinScene);
+        SceneManagerController.Load(SceneEnum.GameWinScene);
     }
 
     public void MoveToPauseScene() {
         isPaused = true;
         Time.timeScale = 0;
-        GameManager.Instance.SceneManager.Load(SceneEnum.PauseScene);
+        /**
+         * Faire un prefab du menu des options
+         * Lorsque pause active :
+         * - ouvrir un canvas
+         * - display le prefabs du menu options
+         */
+        SceneManagerController.Load(SceneEnum.PauseScene);
     }
 
     public void MoveToInventoryScene() {
         isPaused = true;
         Time.timeScale = 0;
-        GameManager.Instance.SceneManager.Load(SceneEnum.InventoryScene);
+        SceneManagerController.Load(SceneEnum.InventoryScene);
     }
 
     public void MoveToLatestScene() {
-        GameManager.Instance.SceneManager.Load(GameManager.Instance.LatestScene);
+        SceneManagerController.Load(GameManager.Instance.LatestScene);
     }
 }

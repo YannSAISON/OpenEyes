@@ -1,4 +1,6 @@
-public class LoaderCallback {
+using UnityEngine;
+
+public class LoaderCallback : MonoBehaviour {
     private bool m_IsFirstUpdate = true;
 
     private void Update() {

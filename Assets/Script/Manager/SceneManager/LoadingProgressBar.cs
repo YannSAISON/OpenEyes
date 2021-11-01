@@ -10,6 +10,6 @@ public class LoadingProgressBar : MonoBehaviour {
     }
 
     private void Update() {
-        m_Image.fillAmount = GameManager.Instance.SceneManager.GetLoadingProgress();
+        m_Image.fillAmount = SceneManagerController.GetLoadingProgress();
     }
 }
