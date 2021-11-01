@@ -10,8 +10,8 @@ public class FovTest : MonoBehaviour
     public float baseAngle = 45f;
     private Mesh mesh;
     public LayerMask obstructionLayer;
+    public LayerMask targetMask;
     private Vector3 origin;
-    public FieldOfView fieldOfView;
     public Material baseMaterial;
     public Material triggeredMaterial;
 
@@ -29,6 +29,7 @@ public class FovTest : MonoBehaviour
         float angle = baseAngle;
         float angleIncrease = fov / rayCount;
         float viewDistance = baseViewDistance;
+        bool playerIsFound = false;
 
         Vector3[] vertices = new Vector3[rayCount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
@@ -42,8 +43,11 @@ public class FovTest : MonoBehaviour
         {
             Vector3 vertex;
             RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, obstructionLayer);
+            RaycastHit2D raycastHit2DPlayer = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, targetMask);
             if (raycastHit2D.rigidbody == null)
             {
+                if (raycastHit2DPlayer.rigidbody)
+                    playerIsFound = true;
                 vertex = origin + GetVectorFromAngle(angle) * viewDistance;
             }
             else
@@ -67,7 +71,7 @@ public class FovTest : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
-        if (fieldOfView.canSeePlayer)
+        if (playerIsFound)
             gameObject.GetComponent<MeshRenderer>().material = triggeredMaterial;
         else
             gameObject.GetComponent<MeshRenderer>().material = baseMaterial;
