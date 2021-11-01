@@ -47,6 +47,8 @@ public class FovTest : MonoBehaviour {
                     playerIsFound = true;
                 vertex = m_Origin + GetVectorFromAngle(angle) * viewDistance;
             } else {
+                if (raycastHit2DPlayer.rigidbody && (Vector3.Distance(m_Origin, raycastHit2D.point) > Vector3.Distance(m_Origin, raycastHit2DPlayer.point)))
+                    playerIsFound = true;
                 vertex = raycastHit2D.point;
             }
 
