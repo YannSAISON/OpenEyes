@@ -10,12 +10,14 @@ public static class SceneManagerController {
     private static Action _onLoaderCallback;
     private static AsyncOperation _asyncOperation;
 
-    public static void Load(SceneEnum scene) {
-        _onLoaderCallback = () => {
-            GameObject loadingGameObject = new GameObject("LoadingGameObject");
+    public static void Load(SceneEnum scene, bool loadingNeeded = false) {
+        if (loadingNeeded) {
+            _onLoaderCallback = () => {
+                GameObject loadingGameObject = new GameObject("LoadingGameObject");
 
-            loadingGameObject.AddComponent<LoadingBehaviour>().StartCoroutine(LoadAsyncScene(scene));
-        };
+                loadingGameObject.AddComponent<LoadingBehaviour>().StartCoroutine(LoadAsyncScene(scene));
+            };
+        }
         SceneManager.LoadScene(SceneEnum.LoadingScene.ToString());
     }
 

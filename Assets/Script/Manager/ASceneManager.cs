@@ -14,7 +14,7 @@ public abstract class ASceneManager : MonoBehaviour {
     public void MoveToGameScene() {
         isPaused = false;
         Time.timeScale = 1;
-        SceneManagerController.Load(SceneEnum.GameScene);
+        SceneManagerController.Load(SceneEnum.GameScene, true);
     }
 
     public void MoveToOptionScene() {
@@ -56,10 +56,17 @@ public abstract class ASceneManager : MonoBehaviour {
     public void MoveToInventoryScene() {
         isPaused = true;
         Time.timeScale = 0;
+        /**
+         * Faire un prefab du menu des options
+         * Lorsque pause active :
+         * - ouvrir un canvas
+         * - display le prefabs du menu options
+         */
         SceneManagerController.Load(SceneEnum.InventoryScene);
     }
 
     public void MoveToLatestScene() {
-        SceneManagerController.Load(GameManager.Instance.LatestScene);
+        bool needLoading = GameManager.Instance.LatestScene == SceneEnum.GameScene;
+        SceneManagerController.Load(GameManager.Instance.LatestScene, needLoading);
     }
 }
