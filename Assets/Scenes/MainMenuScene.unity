@@ -1225,7 +1225,6 @@ GameObject:
   - component: {fileID: 1517013219}
   - component: {fileID: 1517013218}
   - component: {fileID: 1517013217}
-  - component: {fileID: 1517013220}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1298,18 +1297,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1517013220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517013216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfccb46b19a74525b6c1df4b64b844b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1591839353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,7 +1491,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -43367133
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 5
   m_RenderMode: 0
   m_SortMode: 0

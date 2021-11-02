@@ -11,14 +11,17 @@ public static class SceneManagerController {
     private static AsyncOperation _asyncOperation;
 
     public static void Load(SceneEnum scene, bool loadingNeeded = false) {
+        if (GameManager.Instance) GameManager.Instance.ChangeScene(scene);
         if (loadingNeeded) {
             _onLoaderCallback = () => {
                 GameObject loadingGameObject = new GameObject("LoadingGameObject");
 
                 loadingGameObject.AddComponent<LoadingBehaviour>().StartCoroutine(LoadAsyncScene(scene));
             };
+            SceneManager.LoadScene(SceneEnum.LoadingScene.ToString());
+        } else {
+            SceneManager.LoadScene(scene.ToString());
         }
-        SceneManager.LoadScene(SceneEnum.LoadingScene.ToString());
     }
 
     public static void LoadCallback() {

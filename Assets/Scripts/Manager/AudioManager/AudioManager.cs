@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour {
     }
 
     private void Start() {
-        Play(SoundEnum.MainMenu);
+        //Play(SoundEnum.MainMenu);
     }
 
     public void Play(SoundEnum soundToPlay) {
