@@ -1,9 +1,11 @@
 public enum SceneEnum {
     OpeningScene,
-    LoadingScene,
     MainMenuScene,
-    GameScene,
+    LoadingScene,
+    FirstLevelFirstPlan = 3,
     OptionScene,
+    FirstLevelSecondPlan = 5,
+    GameScene,
     GameOverScene,
     GameWinScene,
     PauseScene,

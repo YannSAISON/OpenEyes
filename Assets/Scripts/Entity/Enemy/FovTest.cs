@@ -69,6 +69,7 @@ public class FovTest : MonoBehaviour {
         m_Mesh.vertices = vertices;
         m_Mesh.uv = uv;
         m_Mesh.triangles = triangles;
+        m_Mesh.RecalculateBounds();
         if (playerIsFound)
             gameObject.GetComponent<MeshRenderer>().material = triggeredMaterial;
         else
