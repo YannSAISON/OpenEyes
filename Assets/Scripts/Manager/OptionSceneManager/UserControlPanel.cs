@@ -5,8 +5,6 @@ using UnityEngine;
 public class UserControlPanel : MonoBehaviour {
     [SerializeField] private RectTransform rectTransform;
 
-    private const float Speed = 0.3f;
-
     #region Getter
 
     private static UserControlPanel _instance;
@@ -26,14 +24,6 @@ public class UserControlPanel : MonoBehaviour {
     private void Awake() {
         name = "UserControlPanel";
         rectTransform = GetComponent<RectTransform>();
-        rectTransform.DOAnchorPosX(rectTransform.rect.width * -2, 0f);
-    }
-
-    public void Show(float delay = 0f) {
-        rectTransform.DOAnchorPosX(0, 0.3f).SetDelay(delay);
-    }
-
-    public void Hide(int numberOfRectTransform, float delay = 0f) {
-        rectTransform.DOAnchorPosX(rectTransform.rect.width * numberOfRectTransform, 0.3f).SetDelay(delay);
+        gameObject.transform.position = new Vector3(0, 0, 0);
     }
 }

@@ -2,11 +2,10 @@ using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class VolumePanel : MonoBehaviour {
     [SerializeField] protected RectTransform rectTransform;
-    private const float Speed = 0.3f;
-    private bool isFaded = true;
 
     #region Getter
 
@@ -27,14 +26,6 @@ public class VolumePanel : MonoBehaviour {
     private void Awake() {
         name = "VolumePanel";
         rectTransform = GetComponent<RectTransform>();
-        rectTransform.DOAnchorPosX(rectTransform.rect.width * -1, 0f);
-    }
-
-    public void Show(float delay = 0f) {
-        rectTransform.DOAnchorPosX(0, 0.3f).SetDelay(delay);
-    }
-
-    public void Hide(int numberOfRectTransform, float delay = 0f) {
-        rectTransform.DOAnchorPosX(rectTransform.rect.width * numberOfRectTransform, 0.3f).SetDelay(delay);
+        gameObject.transform.position = new Vector3(0, 0, 0);
     }
 }
