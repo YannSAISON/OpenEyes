@@ -1,15 +1,11 @@
+using DG.Tweening;
 using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
     private SceneEnum ActualScene { get; set; }
     public SceneEnum LatestScene { get; set; }
 
-    private const string ScreenWidth = "sc_width";
-    private const string ScreenHeight = "sc_height";
 
     private void Awake() {
         if (Instance == null) {
@@ -20,28 +16,81 @@ public class GameManager : MonoBehaviour {
 
         DontDestroyOnLoad(gameObject);
         SetupWindowsData();
-        ActualScene = SceneEnum.OpeningScene;
-        LatestScene = SceneEnum.OpeningScene;
-        if (SceneManager.GetActiveScene().name != SceneEnum.OpeningScene.ToString())
-            SceneManager.LoadScene(ActualScene.ToString());
+        ActualScene = SceneEnum.MainMenuScene;
+        LatestScene = SceneEnum.MainMenuScene;
+        DOTween.Clear(true);
+        // if (SceneManager.GetActiveScene().name != SceneEnum.OpeningScene.ToString())
+        //    SceneManager.LoadScene(ActualScene.ToString());
     }
 
+    //private void Update() { 
+    //    MoveToLatestScene();
+    //}
+
     public void ChangeScene(SceneEnum newScene) {
+        DOTween.Clear(true);
         LatestScene = ActualScene;
         ActualScene = newScene;
     }
 
     private void SetupWindowsData() {
-        PlayerPrefs.SetInt(ScreenWidth, 1920);
-        PlayerPrefs.SetInt(ScreenHeight, 1080);
-        int width = PlayerPrefs.GetInt(ScreenWidth);
-        int height = PlayerPrefs.GetInt(ScreenHeight);
-        bool fullScreen = Screen.fullScreen;
+        int width = PlayerPrefs.GetInt(ConstantManager.ScreenWidth);
+        int height = PlayerPrefs.GetInt(ConstantManager.ScreenHeight);
+        bool fullScreen = PlayerPrefs.GetInt(ConstantManager.FullScreen) == 1;
+        int quality = PlayerPrefs.GetInt(ConstantManager.ScreenQuality);
+
         Screen.SetResolution(width, height, fullScreen);
-        
-        Debug.Log("ScreenWidth : " + width.ToString());
-        Debug.Log("ScreenHeight : " + height.ToString());
-        Debug.Log("Screen.fullScreen : " + fullScreen.ToString());
-        
+        QualitySettings.SetQualityLevel(quality, true);
     }
+
+    #region ScreenResolutionPanel
+
+    public void UpdateScreenSize(int width, int height) {
+        bool fullScreen = PlayerPrefs.GetInt(ConstantManager.FullScreen) == 1;
+        Screen.SetResolution(width, height, fullScreen);
+        PlayerPrefs.SetInt(ConstantManager.ScreenWidth, width);
+        PlayerPrefs.SetInt(ConstantManager.ScreenHeight, height);
+    }
+
+    public void UpdateScreenQuality(int quality) {
+        QualitySettings.SetQualityLevel(quality, true);
+        PlayerPrefs.SetInt(ConstantManager.ScreenQuality, quality);
+    }
+
+    public void UpdateScreenFullScreen(bool fullScreen) {
+        int width = PlayerPrefs.GetInt(ConstantManager.ScreenWidth);
+        int height = PlayerPrefs.GetInt(ConstantManager.ScreenHeight);
+        Screen.SetResolution(width, height, fullScreen);
+        PlayerPrefs.SetInt(ConstantManager.ScreenQuality, fullScreen ? 1 : 0);
+    }
+
+    #endregion ScreenResolutionPanel
+
+    #region GlobalKeyBoardControl
+
+    private void MoveToLatestScene() {
+        switch (ActualScene) {
+            case SceneEnum.OpeningScene:
+                break;
+            case SceneEnum.LoadingScene:
+                break;
+            case SceneEnum.MainMenuScene:
+                break;
+            case SceneEnum.GameScene:
+                break;
+            case SceneEnum.OptionScene:
+                if (Input.GetKeyDown(KeyCode.Escape)) SceneManagerController.Load(LatestScene);
+                break;
+            case SceneEnum.GameOverScene:
+                break;
+            case SceneEnum.GameWinScene:
+                break;
+            case SceneEnum.PauseScene:
+                break;
+            case SceneEnum.InventoryScene:
+                break;
+        }
+    }
+
+    #endregion
 }

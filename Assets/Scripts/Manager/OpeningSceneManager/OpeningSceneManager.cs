@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class OpeningSceneManager : MonoBehaviour {
     public VideoPlayer videoPlayer; // Drag & Drop the GameObject holding the VideoPlayer component
     public Text text;
-    private const float SpeedToFadeText = 25f;
+    private const float SpeedToFadeText = 10f;
 
     private void Awake() {
         text.gameObject.SetActive(false);

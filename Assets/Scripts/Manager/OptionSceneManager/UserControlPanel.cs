@@ -1,20 +1,22 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-[RequireComponent(typeof(RectTransform))]
 public class UserControlPanel : MonoBehaviour {
     [SerializeField] private RectTransform rectTransform;
 
+    private const float Speed = 0.3f;
+
     #region Getter
 
-    static UserControlPanel _instance;
+    private static UserControlPanel _instance;
 
     public static UserControlPanel Instance {
         get {
             if (_instance == null)
                 _instance = FindObjectOfType<UserControlPanel>();
             if (_instance == null)
-                Debug.LogError("HomeUIManager not found");
+                Debug.LogError("UserControlPanel not found");
             return _instance;
         }
     }
@@ -22,8 +24,9 @@ public class UserControlPanel : MonoBehaviour {
     #endregion Getter
 
     private void Awake() {
+        name = "UserControlPanel";
         rectTransform = GetComponent<RectTransform>();
-        rectTransform.DOAnchorPosX(0, 0f);
+        rectTransform.DOAnchorPosX(rectTransform.rect.width * -2, 0f);
     }
 
     public void Show(float delay = 0f) {
