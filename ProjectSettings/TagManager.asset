@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - ConfigPoint
+  - Warp
+  - SceneChangeManager
   layers:
   - Default
   - TransparentFX
