@@ -16,11 +16,14 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetButtonDown("Jump")) {
             jump = true;
         }
-
         if (Input.GetButtonDown("Crouch")) {
             crouch = true;
         } else if (Input.GetButtonUp("Crouch")) {
             crouch = false;
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            GameObject.FindObjectsOfType<AngerBar>()[0].GetComponent<AngerBar>().ChangeStatus(10, false);
         }
     }
 

@@ -242,7 +242,7 @@ MonoBehaviour:
   airControl: 1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   groundCheck: {fileID: 8116497502360220906}
   ceilingCheck: {fileID: 8116497503018946890}
   crouchDisableCollider: {fileID: 0}
@@ -291,7 +291,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.53}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!114 &8116497503008483089
