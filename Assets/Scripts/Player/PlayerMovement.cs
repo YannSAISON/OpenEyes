@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            GameObject.FindObjectsOfType<AngerBar>()[0].GetComponent<AngerBar>().ChangeStatus(10, false);
+            if (GameObject.FindObjectsOfType<AngerBar>().Length > 0)
+                GameObject.FindObjectsOfType<AngerBar>()[0].GetComponent<AngerBar>().ChangeStatus(10, false);
         }
     }
 
