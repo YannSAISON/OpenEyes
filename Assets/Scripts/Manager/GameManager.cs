@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour {
     private SceneEnum ActualScene { get; set; }
     public SceneEnum LatestScene { get; set; }
 
+    private const string ScreenWidth = "sc_width";
+    private const string ScreenHeight = "sc_height";
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -16,6 +19,7 @@ public class GameManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
+        SetupWindowsData();
         ActualScene = SceneEnum.OpeningScene;
         LatestScene = SceneEnum.OpeningScene;
         if (SceneManager.GetActiveScene().name != SceneEnum.OpeningScene.ToString())
@@ -25,5 +29,19 @@ public class GameManager : MonoBehaviour {
     public void ChangeScene(SceneEnum newScene) {
         LatestScene = ActualScene;
         ActualScene = newScene;
+    }
+
+    private void SetupWindowsData() {
+        PlayerPrefs.SetInt(ScreenWidth, 1920);
+        PlayerPrefs.SetInt(ScreenHeight, 1080);
+        int width = PlayerPrefs.GetInt(ScreenWidth);
+        int height = PlayerPrefs.GetInt(ScreenHeight);
+        bool fullScreen = Screen.fullScreen;
+        Screen.SetResolution(width, height, fullScreen);
+        
+        Debug.Log("ScreenWidth : " + width.ToString());
+        Debug.Log("ScreenHeight : " + height.ToString());
+        Debug.Log("Screen.fullScreen : " + fullScreen.ToString());
+        
     }
 }

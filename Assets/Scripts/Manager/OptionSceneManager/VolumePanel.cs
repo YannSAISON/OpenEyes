@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(RectTransform))]
 public class VolumePanel : MonoBehaviour {
-    private RectTransform m_RectTransform;
+    [SerializeField] private RectTransform rectTransform;
 
     #region Getter
 
@@ -21,16 +21,16 @@ public class VolumePanel : MonoBehaviour {
 
     #endregion Getter
 
-    private void Awake() {
-        m_RectTransform = GetComponent<RectTransform>();
-        m_RectTransform.DOAnchorPosX(0, 0f);
+    void Start() {
+        rectTransform = GetComponent<RectTransform>();
+        rectTransform.DOAnchorPosX(rectTransform.rect.width, 0f);
     }
 
     public void Show(float delay = 0f) {
-        m_RectTransform.DOAnchorPosX(0, 0.3f).SetDelay(delay);
+        rectTransform.DOAnchorPosX(0, 0.3f).SetDelay(delay);
     }
-
-    public void Hide(float delay = 0f) {
-        m_RectTransform.DOAnchorPosX(m_RectTransform.rect.width * -1, 0.3f).SetDelay(delay);
+    
+    public void Hide(int numberOfRectTransform, float delay = 0f) {
+        rectTransform.DOAnchorPosX(rectTransform.rect.width * numberOfRectTransform, 0.3f).SetDelay(delay);
     }
 }

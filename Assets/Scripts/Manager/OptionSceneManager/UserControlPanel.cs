@@ -2,17 +2,17 @@ using DG.Tweening;
 using UnityEngine;
 
 [RequireComponent(typeof(RectTransform))]
-public class ControlPanel : MonoBehaviour {
+public class UserControlPanel : MonoBehaviour {
     [SerializeField] private RectTransform rectTransform;
 
     #region Getter
 
-    private static ControlPanel _instance;
+    static UserControlPanel _instance;
 
-    public static ControlPanel Instance {
+    public static UserControlPanel Instance {
         get {
             if (_instance == null)
-                _instance = FindObjectOfType<ControlPanel>();
+                _instance = FindObjectOfType<UserControlPanel>();
             if (_instance == null)
                 Debug.LogError("HomeUIManager not found");
             return _instance;
@@ -21,16 +21,16 @@ public class ControlPanel : MonoBehaviour {
 
     #endregion Getter
 
-    void Start() {
+    private void Awake() {
         rectTransform = GetComponent<RectTransform>();
-        rectTransform.DOAnchorPosX(rectTransform.rect.width, 0f);
+        rectTransform.DOAnchorPosX(0, 0f);
     }
 
     public void Show(float delay = 0f) {
         rectTransform.DOAnchorPosX(0, 0.3f).SetDelay(delay);
     }
 
-    public void Hide(float delay = 0f) {
-        rectTransform.DOAnchorPosX(rectTransform.rect.width, 0.3f).SetDelay(delay);
+    public void Hide(int numberOfRectTransform, float delay = 0f) {
+        rectTransform.DOAnchorPosX(rectTransform.rect.width * numberOfRectTransform, 0.3f).SetDelay(delay);
     }
 }
