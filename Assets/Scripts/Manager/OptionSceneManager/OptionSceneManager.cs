@@ -22,25 +22,29 @@ public class OptionSceneManager : ASceneManager {
 
     #endregion Getter
 
+    private void Awake() {
+        UserControlPanel.Instance.gameObject.SetActive(true);
+        VolumePanel.Instance.gameObject.SetActive(false);
+        ScreenResolutionPanel.Instance.gameObject.SetActive(false);
+    }
 
     public void ShowUserControlPanel() {
         Debug.Log("ShowUserControlPanel");
-        UserControlPanel.Instance.Show();
-        VolumePanel.Instance.Hide(1);
-        ScreenResolutionPanel.Instance.Hide(2);
+        UserControlPanel.Instance.gameObject.SetActive(true);
+        VolumePanel.Instance.gameObject.SetActive(false);
+        ScreenResolutionPanel.Instance.gameObject.SetActive(false);
     }
 
     public void ShowVolumePanelMenu() {
         Debug.Log("ShowVolumePanelMenu");
-        UserControlPanel.Instance.Hide(-1);
-        VolumePanel.Instance.Show();
-        ScreenResolutionPanel.Instance.Hide(1);
+        UserControlPanel.Instance.gameObject.SetActive(false);
+        VolumePanel.Instance.gameObject.SetActive(true);
+        ScreenResolutionPanel.Instance.gameObject.SetActive(false);
     }
 
     public void ShowScreenResolutionPanel() {
-        Debug.Log("ShowScreenResolutionPanel");
-        UserControlPanel.Instance.Hide(2);
-        VolumePanel.Instance.Hide(-1);
-        ScreenResolutionPanel.Instance.Show();
+        UserControlPanel.Instance.gameObject.SetActive(false);
+        VolumePanel.Instance.gameObject.SetActive(false);
+        ScreenResolutionPanel.Instance.gameObject.SetActive(true);
     }
 }

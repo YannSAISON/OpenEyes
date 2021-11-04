@@ -12,12 +12,10 @@ public class ScreenResolutionPanel : MonoBehaviour {
 
     private static List<string> Resolution { get; set; }
     private static List<string> Quality { get; set; }
-    private const float Speed = 0.3f;
 
     public Dropdown dropdownSelectResolution;
     public Dropdown dropdownSelectQuality;
     public Toggle toggleSelectFullScreen;
-
 
     #region Getter
 
@@ -38,19 +36,11 @@ public class ScreenResolutionPanel : MonoBehaviour {
     private void Awake() {
         name = "ScreenResolutionPanel";
         rectTransform = GetComponent<RectTransform>();
-        rectTransform.DOAnchorPosX(0, 0f);
+        gameObject.transform.position = new Vector3(0, 0, 0);
         SetupProperties();
         SetupDropDownResolution();
         SetupDropDownQuality();
         SetupToggleFullScreen();
-    }
-
-    public void Show(float delay = 0f) {
-        rectTransform.DOAnchorPosX(0, 0.3f).SetDelay(delay);
-    }
-
-    public void Hide(int numberOfRectTransform, float delay = 0f) {
-        rectTransform.DOAnchorPosX(rectTransform.rect.width * numberOfRectTransform, 0.3f).SetDelay(delay);
     }
 
     #region Setup
