@@ -14,6 +14,8 @@ public class ChangeScenePlanManager : MonoBehaviour
     public GameObject[] warpArray;
 
     public int currentWarpId;
+    private bool isFirstAwakening = true;
+
     void Awake()
     {
         //GameObject[] objs = GameObject.FindGameObjectsWithTag("SceneChangeManager");
@@ -46,6 +48,11 @@ public class ChangeScenePlanManager : MonoBehaviour
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
+        if (isFirstAwakening == true)
+        {
+            isFirstAwakening = false;
+            return;
+        }
         player = GameObject.FindGameObjectWithTag("Player");
         warpArray = GameObject.FindGameObjectsWithTag("Warp");
         foreach (GameObject warp in warpArray)

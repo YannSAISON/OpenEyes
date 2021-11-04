@@ -21,13 +21,13 @@ public class RecessBehaviour : MonoBehaviour
                 player.tag = "HiddenPlayer";
                 playerGO.layer = LayerMask.NameToLayer("HiddenPlayer");
                 playerGO.GetComponent<SpriteRenderer>().sortingOrder = -1;
-                playerPosition = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z + 1);
+                //playerPosition = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z + 1);
             } else
             {
                 playerGO.layer = LayerMask.NameToLayer("Player");
                 playerGO.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 player.tag = "Player";
-                playerPosition = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z - 1);
+                //playerPosition = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z - 1);
             }
             player.attachedRigidbody.transform.position = playerPosition;
         }
@@ -53,6 +53,8 @@ public class RecessBehaviour : MonoBehaviour
         {
             isPlayerInside = false;
             player.tag = "Player";
+            player.gameObject.layer = LayerMask.NameToLayer("Player");
+            player.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
             player = null;
         }
     }
