@@ -8,6 +8,7 @@ TagManager:
   - ConfigPoint
   - Warp
   - SceneChangeManager
+  - HiddenPlayer
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Ground
   - Obstruction
   - Fov
-  - 
-  - 
+  - HiddenPlayer
+  - Enemy
   - 
   - 
   - 
@@ -44,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FieldOfView
+    uniqueID: 3981758573
     locked: 0

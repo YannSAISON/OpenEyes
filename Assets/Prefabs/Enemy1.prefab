@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1626170859900311977}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 1stPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1626170860469694686}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 2ndPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 1626170860993360358}
   - component: {fileID: 1626170860993360357}
   - component: {fileID: 1626170860993360379}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,9 +131,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -313208723
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1626170861088609279}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,8 @@ GameObject:
   - component: {fileID: 1626170861366680636}
   - component: {fileID: 1626170861366680639}
   - component: {fileID: 1626170861366680638}
-  m_Layer: 0
+  - component: {fileID: 4195332566852710245}
+  m_Layer: 10
   m_Name: FieldOfView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,3 +338,14 @@ MonoBehaviour:
     m_Bits: 8
   baseMaterial: {fileID: 2100000, guid: 726601c75b33a184f8cdb1aee3050b26, type: 2}
   triggeredMaterial: {fileID: 2100000, guid: 0e9b3d2ae37c1d4459f6ed9acd577609, type: 2}
+--- !u!210 &4195332566852710245
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626170861366680632}
+  m_Enabled: 1
+  m_SortingLayerID: -313208723
+  m_SortingLayer: 1
+  m_SortingOrder: 2
