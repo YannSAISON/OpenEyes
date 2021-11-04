@@ -14,7 +14,7 @@ public abstract class ASceneManager : MonoBehaviour {
     public void MoveToGameScene() {
         isPaused = false;
         Time.timeScale = 1;
-        SceneManagerController.Load(SceneEnum.GameScene, true);
+        SceneManagerController.Load(SceneEnum.FirstLevelFirstPlan, true);
     }
 
     public void MoveToOptionScene() {
