@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28672270d8a4e7cbece6910cb1dff2d, type: 3}
+  m_Name: AchievementsDatabase
+  m_EditorClassIdentifier: 
+  achievements:
+  - id: LaunchGame
+    title: Lauch Game
+    description: Enter In The Game For The First Time
+  - id: CompleteFirstActe
+    title: Complete First Acte
+    description: Complete the First acte of Open Eyes
+  - id: CompleteFirstChapterOfFirstActe
+    title: Complete First Chapter First Acte
+    description: Complete the first chapter of the first Acte
+  - id: CompleteSecondChapterOfFirstActe
+    title: Complete second Chapter First Acte
+    description: Complete the secod chapter of the first Acte
+  - id: CompleteThirdChapterOfFirstActe
+    title: Complete second Chapter First Acte
+    description: Complete the secod chapter of the first Acte
+  - id: CompleteFourthChapterOfFirstActe
+    title: Complete second Chapter First Acte
+    description: Complete the secod chapter of the first Acte
+  - id: CompleteTheFiveChapterOfFirstActe
+    title: Complete second Chapter First Acte
+    description: Complete the secod chapter of the first Acte
+  - id: CompleteSecondActe
+    title: Complete Second Acte
+    description: Complete the Second acte of Open Eyes

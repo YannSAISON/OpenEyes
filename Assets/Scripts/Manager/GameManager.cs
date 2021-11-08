@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -23,12 +24,11 @@ public class GameManager : MonoBehaviour {
         //    SceneManager.LoadScene(ActualScene.ToString());
     }
 
-    //private void Update() { 
-    //    MoveToLatestScene();
-    //}
+    private void Update() {
+        MoveToLatestScene();
+    }
 
     public void ChangeScene(SceneEnum newScene) {
-        DOTween.Clear(true);
         LatestScene = ActualScene;
         ActualScene = newScene;
     }
@@ -88,6 +88,9 @@ public class GameManager : MonoBehaviour {
             case SceneEnum.PauseScene:
                 break;
             case SceneEnum.InventoryScene:
+                break;
+            case SceneEnum.AchievementScene:
+                if (Input.GetKeyDown(KeyCode.Escape)) SceneManagerController.Load(LatestScene);
                 break;
         }
     }
