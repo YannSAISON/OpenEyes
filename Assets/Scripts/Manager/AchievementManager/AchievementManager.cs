@@ -38,7 +38,7 @@ public class AchievementManager : ASceneManager {
         foreach (Achievement achievement in AchievementGlobalManager.Instance.database.achievements) {
             GameObject gameObject = Instantiate(achievementItemPrefab, content);
             AchievementItemManager achievementItemManager = gameObject.GetComponent<AchievementItemManager>();
-            bool unlock = PlayerPrefs.GetInt(achievement.id) == 1;
+            bool unlock = PlayerPrefs.GetInt(ConstantManager.Achievement + achievement.id) == 1;
             achievementItemManager.achievement = achievement;
             achievementItemManager.unlocked = unlock;
             achievementItemManager.RefreshView();
@@ -56,14 +56,14 @@ public class AchievementManager : ASceneManager {
         if (item.unlocked)
             return;
         ShowNotification();
-        PlayerPrefs.SetInt(item.achievement.id, 0);
+        PlayerPrefs.SetInt(ConstantManager.Achievement + item.achievement.id, 0);
         item.unlocked = true;
         item.RefreshView();
     }
 
     public void LockAllAchievement() {
         foreach (Achievement achievement in AchievementGlobalManager.Instance.database.achievements) {
-            PlayerPrefs.DeleteKey(achievement.id);
+            PlayerPrefs.DeleteKey(ConstantManager.Achievement + achievement.id);
         }
 
         foreach (AchievementItemManager itemManager in listAchievementItemManagers) {
