@@ -196,6 +196,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   database: {fileID: 11400000, guid: 903e798570edc49ef97fa73ef36780ec, type: 2}
   achievementsNotificationManager: {fileID: 546090101}
+  listAchievementItemManagers: []
+  achievementItemPrefab: {fileID: 4160991118634321737, guid: 8890a5f1797fa4f118434b4825d2f5b4, type: 3}
+  content: {fileID: 119310882}
 --- !u!1 &221962168
 GameObject:
   m_ObjectHideFlags: 0
