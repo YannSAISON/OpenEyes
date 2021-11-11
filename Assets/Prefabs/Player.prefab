@@ -128,6 +128,8 @@ GameObject:
   - component: {fileID: 8116497503008483090}
   - component: {fileID: 8116497503008483091}
   - component: {fileID: 8116497503008483089}
+  - component: {fileID: 5147807731461317203}
+  - component: {fileID: 6146419911181992524}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -311,6 +313,40 @@ MonoBehaviour:
   horizontalMove: 0
   jump: 0
   crouch: 0
+--- !u!114 &5147807731461317203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116497503008483096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820f5f5c647da3e45aa6d519b4fa3771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characteristics: {fileID: 0}
+  toSearchLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  y: 0.6
+  x: 0.4
+--- !u!114 &6146419911181992524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116497503008483096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9820ec6dfbfcdad428041c5c9ff1661b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 10
+  Defense: 5
+  FightRange: 2
+  VisionRange: 7
 --- !u!1 &8116497503018946891
 GameObject:
   m_ObjectHideFlags: 0

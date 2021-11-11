@@ -329,6 +329,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1195253931999342638, guid: 1d6ec04ff58429a4eb495b8604510c8e, type: 3}
+      propertyPath: x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195253931999342638, guid: 1d6ec04ff58429a4eb495b8604510c8e, type: 3}
+      propertyPath: y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195253931999342638, guid: 1d6ec04ff58429a4eb495b8604510c8e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1626170859900311977, guid: 1d6ec04ff58429a4eb495b8604510c8e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.33
@@ -1244,6 +1256,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5147807731461317203, guid: d78c831c14a7bb0a687f0b374b1894c3, type: 3}
+      propertyPath: x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147807731461317203, guid: d78c831c14a7bb0a687f0b374b1894c3, type: 3}
+      propertyPath: y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146419911181992524, guid: d78c831c14a7bb0a687f0b374b1894c3, type: 3}
+      propertyPath: FightRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8116497503008483096, guid: d78c831c14a7bb0a687f0b374b1894c3, type: 3}
       propertyPath: m_Name
       value: Player
