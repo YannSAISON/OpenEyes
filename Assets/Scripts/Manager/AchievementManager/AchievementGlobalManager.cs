@@ -24,14 +24,13 @@ public class AchievementGlobalManager : MonoBehaviour {
         }
 
         listAchievementItemManagers.Clear();
-
+        
         foreach (Achievement achievement in database.achievements) {
-            AchievementItemManager achievementItemManager = gameObject.GetComponent<AchievementItemManager>();
+            AchievementItemManager itemManager = gameObject.AddComponent<AchievementItemManager>();
             bool unlock = PlayerPrefs.GetInt(ConstantManager.Achievement + achievement.id) == 1;
-            achievementItemManager.achievement = achievement;
-            achievementItemManager.unlocked = unlock;
-            achievementItemManager.RefreshView();
-            listAchievementItemManagers.Add(achievementItemManager);
+            itemManager.achievement = achievement;
+            itemManager.unlocked = unlock;
+            listAchievementItemManagers.Add(itemManager);
         }
     }
 
@@ -42,7 +41,7 @@ public class AchievementGlobalManager : MonoBehaviour {
         item.unlocked = true;
         achievementsNotificationManager.ShowNotification(achievement);
     }
-    
+
     private void UnlockAchievement(AchievementsEnum achievementsEnum) {
         AchievementItemManager item = listAchievementItemManagers[(int) achievementsEnum];
         if (item.unlocked)

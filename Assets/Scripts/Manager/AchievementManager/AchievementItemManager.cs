@@ -18,8 +18,4 @@ public class AchievementItemManager : MonoBehaviour {
         iconUnlock.enabled = unlocked;
         iconLocked.enabled = !unlocked;
     }
-
-    private void OnValidate() {
-        RefreshView();
-    }
 }
