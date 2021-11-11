@@ -73,6 +73,8 @@ GameObject:
   - component: {fileID: 1626170860993360358}
   - component: {fileID: 1626170860993360357}
   - component: {fileID: 1626170860993360379}
+  - component: {fileID: 1195253931999342638}
+  - component: {fileID: 7838454946224506866}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -197,6 +199,39 @@ MonoBehaviour:
   fieldOfView: {fileID: 1626170861366680638}
   startPoint: {fileID: 1626170859900311977}
   endPoint: {fileID: 1626170860469694686}
+--- !u!114 &1195253931999342638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626170860993360352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820f5f5c647da3e45aa6d519b4fa3771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSearchLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  y: 0.6
+  x: 0.4
+--- !u!114 &7838454946224506866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626170860993360352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9820ec6dfbfcdad428041c5c9ff1661b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 10
+  Defense: 3
+  FightRange: 5
+  VisionRange: 7
 --- !u!1 &1626170861088609278
 GameObject:
   m_ObjectHideFlags: 0

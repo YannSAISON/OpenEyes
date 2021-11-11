@@ -42,4 +42,9 @@ public class EnemyBehaviour : MonoBehaviour
             yield return null;
         }
     }
+
+    public bool IsPlayerSeen()
+    {
+        return fieldOfView.IsPlayerSeen();
+    }
 }
