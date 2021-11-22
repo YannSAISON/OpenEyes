@@ -5,7 +5,9 @@ public class AchievementGlobalManager : MonoBehaviour {
     public static AchievementGlobalManager Instance { get; private set; }
     public AchievementsDatabase database;
     public AchievementsNotificationManager achievementsNotificationManager;
-    [SerializeField] [HideInInspector] private List<AchievementItemManager> listAchievementItemManagers;
+    [SerializeField] [HideInInspector] public List<AchievementItemManager> listAchievementItemManagers;
+    public GameObject achievementItemPrefab;
+    public Transform content;
 
     private void Awake() {
         if (Instance == null) {
@@ -26,6 +28,7 @@ public class AchievementGlobalManager : MonoBehaviour {
         listAchievementItemManagers.Clear();
 
         foreach (Achievement achievement in database.achievements) {
+            GameObject gameObject = Instantiate(achievementItemPrefab, content);
             AchievementItemManager achievementItemManager = gameObject.GetComponent<AchievementItemManager>();
             bool unlock = PlayerPrefs.GetInt(ConstantManager.Achievement + achievement.id) == 1;
             achievementItemManager.achievement = achievement;
@@ -37,18 +40,25 @@ public class AchievementGlobalManager : MonoBehaviour {
 
     public void ShowNotification(AchievementsEnum achievementToShow) {
         Achievement achievement = database.achievements[(int) achievementToShow];
-        AchievementItemManager item = listAchievementItemManagers[(int) achievementToShow];
-        PlayerPrefs.SetInt(ConstantManager.Achievement + achievement.id, 0);
-        item.unlocked = true;
         achievementsNotificationManager.ShowNotification(achievement);
     }
-    
-    private void UnlockAchievement(AchievementsEnum achievementsEnum) {
+
+    public void UnlockAchievement(AchievementsEnum achievementsEnum) {
         AchievementItemManager item = listAchievementItemManagers[(int) achievementsEnum];
         if (item.unlocked)
             return;
         ShowNotification(achievementsEnum);
-        PlayerPrefs.SetInt(ConstantManager.Achievement + item.achievement.id, 0);
+        PlayerPrefs.SetInt(ConstantManager.Achievement + item.achievement.id, 1);
         item.unlocked = true;
+    }
+
+    public void LockAllAchievement() {
+        foreach (Achievement achievement in database.achievements) {
+            PlayerPrefs.DeleteKey(ConstantManager.Achievement + achievement.id);
+        }
+
+        foreach (AchievementItemManager itemManager in listAchievementItemManagers) {
+            itemManager.unlocked = false;
+        }
     }
 }

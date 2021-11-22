@@ -35,11 +35,11 @@ public class AchievementManager : ASceneManager {
 
         listAchievementItemManagers.Clear();
 
-        foreach (Achievement achievement in AchievementGlobalManager.Instance.database.achievements) {
+        foreach (AchievementItemManager item in AchievementGlobalManager.Instance.listAchievementItemManagers) {
             GameObject gameObject = Instantiate(achievementItemPrefab, content);
             AchievementItemManager achievementItemManager = gameObject.GetComponent<AchievementItemManager>();
-            bool unlock = PlayerPrefs.GetInt(ConstantManager.Achievement + achievement.id) == 1;
-            achievementItemManager.achievement = achievement;
+            bool unlock = PlayerPrefs.GetInt(ConstantManager.Achievement + item.achievement.id) == 1;
+            achievementItemManager.achievement = item.achievement;
             achievementItemManager.unlocked = unlock;
             achievementItemManager.RefreshView();
             listAchievementItemManagers.Add(achievementItemManager);
@@ -47,25 +47,20 @@ public class AchievementManager : ASceneManager {
     }
 
     public void UnlockAchievement() {
+        AchievementGlobalManager.Instance.UnlockAchievement(achievementToShow);
         UnlockAchievement(achievementToShow);
     }
 
     private void UnlockAchievement(AchievementsEnum achievementsEnum) {
-        Debug.Log("UnlockAchievement" + achievementsEnum);
         AchievementItemManager item = listAchievementItemManagers[(int) achievementsEnum];
         if (item.unlocked)
             return;
-        ShowNotification();
-        PlayerPrefs.SetInt(ConstantManager.Achievement + item.achievement.id, 0);
         item.unlocked = true;
         item.RefreshView();
     }
 
     public void LockAllAchievement() {
-        foreach (Achievement achievement in AchievementGlobalManager.Instance.database.achievements) {
-            PlayerPrefs.DeleteKey(ConstantManager.Achievement + achievement.id);
-        }
-
+        AchievementGlobalManager.Instance.LockAllAchievement();
         foreach (AchievementItemManager itemManager in listAchievementItemManagers) {
             itemManager.unlocked = false;
             itemManager.RefreshView();

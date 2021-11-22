@@ -14,6 +14,8 @@ public class FovTest : MonoBehaviour {
     public Material baseMaterial;
     public Material triggeredMaterial;
 
+    private bool isPlayerSeen = false;
+
     // Start is called before the first frame update
     private void Start() {
         m_Mesh = new Mesh();
@@ -26,7 +28,6 @@ public class FovTest : MonoBehaviour {
         float angle = baseAngle;
         float angleIncrease = fov / rayCount;
         float viewDistance = baseViewDistance;
-        bool playerIsFound = false;
 
         Vector3[] vertices = new Vector3[rayCount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
@@ -44,11 +45,13 @@ public class FovTest : MonoBehaviour {
                 Physics2D.Raycast(m_Origin, GetVectorFromAngle(angle), viewDistance, targetMask);
             if (raycastHit2D.rigidbody == null) {
                 if (raycastHit2DPlayer.rigidbody)
-                    playerIsFound = true;
+                    isPlayerSeen = true;
                 vertex = m_Origin + GetVectorFromAngle(angle) * viewDistance;
             } else {
                 if (raycastHit2DPlayer.rigidbody && (Vector3.Distance(m_Origin, raycastHit2D.point) > Vector3.Distance(m_Origin, raycastHit2DPlayer.point)))
-                    playerIsFound = true;
+                    isPlayerSeen = true;
+                else
+                    isPlayerSeen = false;
                 vertex = raycastHit2D.point;
             }
 
@@ -70,13 +73,17 @@ public class FovTest : MonoBehaviour {
         m_Mesh.uv = uv;
         m_Mesh.triangles = triangles;
         m_Mesh.RecalculateBounds();
-        if (playerIsFound)
+        if (isPlayerSeen)
             gameObject.GetComponent<MeshRenderer>().material = triggeredMaterial;
         else
             gameObject.GetComponent<MeshRenderer>().material = baseMaterial;
     }
     // Update is called once per frame
 
+    public bool IsPlayerSeen()
+    {
+        return isPlayerSeen;
+    }
 
     private static Vector3 GetVectorFromAngle(float angle) {
         float angleRad = angle * (Mathf.PI / 180f);
