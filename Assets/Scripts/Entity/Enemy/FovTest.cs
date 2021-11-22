@@ -28,12 +28,14 @@ public class FovTest : MonoBehaviour {
         float angle = baseAngle;
         float angleIncrease = fov / rayCount;
         float viewDistance = baseViewDistance;
+        isPlayerSeen = false;
 
         Vector3[] vertices = new Vector3[rayCount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
         int[] triangles = new int[rayCount * 3];
+        var draw_Origin = this.transform.parent.transform.position;
 
-        vertices[0] = m_Origin;
+        vertices[0] = m_Origin - draw_Origin;
 
         int vertexIndex = 1;
         int triangleIndex = 0;
@@ -46,13 +48,13 @@ public class FovTest : MonoBehaviour {
             if (raycastHit2D.rigidbody == null) {
                 if (raycastHit2DPlayer.rigidbody)
                     isPlayerSeen = true;
-                vertex = m_Origin + GetVectorFromAngle(angle) * viewDistance;
+                vertex = m_Origin + GetVectorFromAngle(angle) * viewDistance - draw_Origin;
             } else {
                 if (raycastHit2DPlayer.rigidbody && (Vector3.Distance(m_Origin, raycastHit2D.point) > Vector3.Distance(m_Origin, raycastHit2DPlayer.point)))
                     isPlayerSeen = true;
-                else
+                else if (!isPlayerSeen)
                     isPlayerSeen = false;
-                vertex = raycastHit2D.point;
+                vertex = raycastHit2D.point - new Vector2(draw_Origin.x, draw_Origin.y);
             }
 
             vertices[vertexIndex] = vertex;
