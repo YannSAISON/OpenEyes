@@ -11,7 +11,6 @@ public class Warp : MonoBehaviour
 
     private Collider2D player;
     private bool isPlayerInside = false;
-    private bool isKeyDown = false;
     
     private void Update()
     {

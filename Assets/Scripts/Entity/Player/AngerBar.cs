@@ -14,6 +14,7 @@ public class AngerBar : MonoBehaviour
     private Slider slider;
     private List<Action> calmEventActions = new List<Action>();
     private List<Action> angryEventActions = new List<Action>();
+    private List<Action<float>> changeEventActions = new List<Action<float>>();
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class AngerBar : MonoBehaviour
                 ExecuteActions(angryEventActions);
             }
         }
+        ExecuteActionsFloat(changeEventActions);
     }
     
     public void ChangeStatusCalm(float _value) {
@@ -58,10 +60,18 @@ public class AngerBar : MonoBehaviour
             action();
         }
     }
+    private void ExecuteActionsFloat(List<Action<float>> actions) {
+        foreach (Action<float> action in actions) {
+            action(status / 100);
+        }
+    }
     public void AddCalmEvent(Action _action) {
         calmEventActions.Add(_action);
     }
     public void AddAngryEvent(Action _action) {
         angryEventActions.Add(_action);
+    }
+    public void AddChangeEvent(Action<float> _action) {
+        changeEventActions.Add(_action);
     }
 }

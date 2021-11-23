@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4303315704392666329}
   - component: {fileID: 4303315704392666328}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,8 @@ GameObject:
   - component: {fileID: 4303315704877656793}
   - component: {fileID: 4303315704877656798}
   - component: {fileID: 4303315704434014913}
-  m_Layer: 6
+  - component: {fileID: 878255403640318919}
+  m_Layer: 7
   m_Name: Plateforme
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -181,5 +182,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  Speed: 2
-  sizeMove: 5
+  Speed: 3
+  sizeMove: 10
+--- !u!50 &878255403640318919
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303315704877656796}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: 88692e22240ad7d40b15ed669506f558, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

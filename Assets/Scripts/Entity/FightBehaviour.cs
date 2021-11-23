@@ -19,8 +19,8 @@ public class FightBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (hasFighten)
-            return;*/
+        if (hasFighten)
+            return;
         AngerBar angerBar = FindObjectOfType<AngerBar>();
         var foe = Physics2D.OverlapCircle(this.transform.position, characteristics.FightRange, toSearchLayer);
         if (foe != null)
@@ -56,11 +56,11 @@ public class FightBehaviour : MonoBehaviour
         if ((result / 100f) < (characterChances / (characterChances + foeChances)))
         {
             Debug.Log("Player won");
-            //Destroy(foe);
+            Destroy(foe.transform.parent.gameObject);
         } else
         {
             Debug.Log("Enemy won");
         }
-        //hasFighten = true;
+        hasFighten = true;
     }
 }
