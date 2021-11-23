@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AchievementScene.unity
     guid: 1f0b1571c41ee4dcb8ec2ce52f864274
+  - enabled: 1
+    path: Assets/Scenes/EquipmentScene.unity
+    guid: 253714546b7544dfdba90f75cf233758
   m_configObjects: {}
