@@ -47,7 +47,7 @@ public class DisplayInventory : MonoBehaviour {
                 m_ItemDisplayed[slot].GetComponentInChildren<TextMeshProUGUI>().text = slot.amount.ToString("n0");
             } else {
                 var obj = Instantiate(inventoryPrefabs, Vector3.zero, Quaternion.identity, transform);
-                var objImageChildren = obj.GetComponentInChildren<Image>();
+                var objImageChildren = obj.GetComponentInChildren<Image>().GetComponentInChildren<Image>();
                 var objTextMeshProUGUIChildren = obj.GetComponentInChildren<TextMeshProUGUI>();
                 var item = inventoryObject.database.GETItem[0];
                 objTextMeshProUGUIChildren.text = slot.amount.ToString("n0");
