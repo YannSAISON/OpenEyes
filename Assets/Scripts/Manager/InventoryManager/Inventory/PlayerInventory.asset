@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961b038ad98d444ba8435d3b66b1ac56, type: 3}
+  m_Name: PlayerInventory
+  m_EditorClassIdentifier: 
+  savePath: /Inventory.Save
+  database: {fileID: 11400000, guid: 5cf0483deb9e1407283f83f47494feab, type: 2}
+  Container:
+    items:
+    - id: 1
+      item:
+        name: Bones
+        id: 1
+        Buffs:
+        - attribute: 0
+          value: 0
+          min: 5
+          max: 10
+      amount: 0
