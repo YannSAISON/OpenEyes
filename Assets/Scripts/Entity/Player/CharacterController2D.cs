@@ -27,6 +27,8 @@ public class CharacterController2D : MonoBehaviour {
     public BoolEvent onCrouchEvent;
     private bool m_WasCrouching = false;
 
+    private float time = 0;
+
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> {
     }
@@ -51,7 +53,7 @@ public class CharacterController2D : MonoBehaviour {
         for (int i = 0; i < colliders.Length; i++) {
             if (colliders[i].gameObject != gameObject) {
                 m_Grounded = true;
-                if (!wasGrounded)
+                if (!wasGrounded && Time.time > time + 0.002)
                     onLandEvent.Invoke();
             }
         }
@@ -115,7 +117,7 @@ public class CharacterController2D : MonoBehaviour {
         if (m_Grounded && jump) {
             // Add a vertical force to the player.
             m_Grounded = false;
-            Debug.Log("Jumping");
+            time = Time.time;
             m_Rigidbody2D.AddForce(new Vector2(0f, jumpForce));
         }
     }
@@ -126,6 +128,9 @@ public class CharacterController2D : MonoBehaviour {
         m_FacingRight = !m_FacingRight;
 
         // Multiply the player's x local scale by -1.
+        Vector3 cameraScale = transform.GetChild(0).GetChild(0).transform.localScale;
+        cameraScale.x *= -1;
+        transform.GetChild(0).GetChild(0).transform.localScale = cameraScale;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;

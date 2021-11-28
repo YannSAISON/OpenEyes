@@ -31,8 +31,13 @@ public class SimplePlatformController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             playerIsOn = true;
-            Debug.Log("Collision Detected SimplePlatformController");
-        } else {
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
             playerIsOn = false;
         }
     }
@@ -47,13 +52,13 @@ public class SimplePlatformController : MonoBehaviour {
         if (Status == 0) {
             transform.Translate(Vector3.right * Speed / 50, Space.World);
             if (playerIsOn) {
-                Debug.Log("is on player is on");
-                //player.transform.position = new Vector3(transform.position.x, player.transform.position.y, 0); 
+                /*player.transform.position = */player.transform.Translate(Vector3.right * Speed / 50, Space.World); //new Vector3(transform.position.x, player.transform.position.y, 0); 
 
             }
         } else {
             transform.Translate(Vector3.left * Speed / 50, Space.World);
             if (playerIsOn) {
+                /*player.transform.position = */player.transform.Translate(Vector3.left * Speed / 50, Space.World); //new Vector3(transform.position.x, player.transform.position.y, 0); 
                 //player.transform.position = new Vector3(transform.position.x, player.transform.position.y, 0); 
 
 
@@ -72,8 +77,12 @@ public class SimplePlatformController : MonoBehaviour {
         }
         if (Status == 0) {
             transform.Translate(Vector3.up * Speed / 50, Space.World);
+            if (playerIsOn)
+                player.transform.Translate(Vector3.up * Speed / 50, Space.World);
         } else {
             transform.Translate(Vector3.down * Speed / 50, Space.World);
+            if (playerIsOn)
+                player.transform.Translate(Vector3.down * Speed / 50, Space.World);
         }
     }
 }

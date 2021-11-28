@@ -4,28 +4,44 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller;
+    public Animator animator;
     public float runSpeed = 40f;
     public float horizontalMove = 0f;
     public bool jump = false;
     public bool crouch = false;
+    public Vector3 lastPos = new Vector3();
+
+    private void Start()
+    {
+        lastPos = transform.position;
+    }
 
     // Update is called once per frame
     private void Update() {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         if (Input.GetButtonDown("Jump")) {
             jump = true;
+            animator.SetBool("IsJumping", true);
         }
         if (Input.GetButtonDown("Crouch")) {
             crouch = true;
         } else if (Input.GetButtonUp("Crouch")) {
             crouch = false;
         }
+        animator.SetFloat("VelocityY", transform.position.y - lastPos.y);
         if (Input.GetKeyDown(KeyCode.O))
         {
             if (GameObject.FindObjectsOfType<AngerBar>().Length > 0)
                 GameObject.FindObjectsOfType<AngerBar>()[0].GetComponent<AngerBar>().ChangeStatus(10, false);
         }
+        lastPos = transform.position;
+    }
+
+    public void OnLanding()
+    {
+        animator.SetBool("IsJumping", false);
     }
 
     private void FixedUpdate() {
