@@ -592,6 +592,34 @@ PrefabInstance:
       propertyPath: decreaseSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7235298596912069535, guid: f6a9c413eb6a40b49b88e6a02370f8fd, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235298596912069535, guid: f6a9c413eb6a40b49b88e6a02370f8fd, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235298596912069535, guid: f6a9c413eb6a40b49b88e6a02370f8fd, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2145929977}
+    - target: {fileID: 7235298596912069535, guid: f6a9c413eb6a40b49b88e6a02370f8fd, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235298596912069535, guid: f6a9c413eb6a40b49b88e6a02370f8fd, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRaging
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235298596912069535, guid: f6a9c413eb6a40b49b88e6a02370f8fd, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235298596912069535, guid: f6a9c413eb6a40b49b88e6a02370f8fd, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a9c413eb6a40b49b88e6a02370f8fd, type: 3}
 --- !u!1001 &721332437
@@ -1256,6 +1284,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3530679e73a02b145a8c27645e82b063, type: 3}
+--- !u!114 &2145929977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8116497503008483089, guid: d78c831c14a7bb0a687f0b374b1894c3, type: 3}
+  m_PrefabInstance: {fileID: 8116497502939020171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4ac34c409642b4585e9af6d6ff5285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3192631497495108948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1384,10 +1423,6 @@ PrefabInstance:
     - target: {fileID: 8116497503008483096, guid: d78c831c14a7bb0a687f0b374b1894c3, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116497503008483100, guid: d78c831c14a7bb0a687f0b374b1894c3, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8116497503008483101, guid: d78c831c14a7bb0a687f0b374b1894c3, type: 3}
       propertyPath: m_RootOrder

@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller;
-    public Animator animator;
+    public RuntimeAnimatorController calmAnimator;
+    public RuntimeAnimatorController ragingAnimator;
     public float runSpeed = 40f;
     public float horizontalMove = 0f;
     public bool jump = false;
     public bool crouch = false;
     public Vector3 lastPos = new Vector3();
 
+    public Animator animator;
+
     private void Start()
     {
         lastPos = transform.position;
+        animator.runtimeAnimatorController = calmAnimator;
+        GameObject.FindObjectOfType<AngerBar>().AddAngryEvent(OnRaging);
+        GameObject.FindObjectOfType<AngerBar>().AddCalmEvent(OnCalming);
     }
 
     // Update is called once per frame
@@ -43,6 +49,17 @@ public class PlayerMovement : MonoBehaviour {
     {
         animator.SetBool("IsJumping", false);
     }
+
+    public void OnRaging()
+    {
+        animator.runtimeAnimatorController = ragingAnimator;
+    }
+
+    public void OnCalming()
+    {
+        animator.runtimeAnimatorController = calmAnimator;
+    }
+
 
     private void FixedUpdate() {
         // Move our character
