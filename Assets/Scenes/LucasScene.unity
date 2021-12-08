@@ -255,13 +255,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Test
+  - name: Character 1
     sentences:
-    - Ceci est un test. V1
-    - Ceci est un test. V2
-    - Ceci est un test. V3
-    - Ceci est un test. V4
-    sprite: {fileID: 21300000, guid: 89ea5d18480324aaab86eb7b556ec866, type: 3}
+    - Character 1 - Line 1
+    - Character 1 - Line 2
+    sprite: {fileID: 7896879507418422366, guid: d5cae3107cb591fc6823c1db52c0a4cb, type: 3}
+  - name: Character 2
+    sentences:
+    - Character 2 - Line 1
+    sprite: {fileID: 3345508739736421500, guid: 5b302e84d0ea02d4dad24f11210233df, type: 3}
+  - name: Character 3
+    sentences:
+    - Character 3 - Line 1
+    sprite: {fileID: 4785440834425435739, guid: 5b302e84d0ea02d4dad24f11210233df, type: 3}
+  - name: Character 1
+    sentences:
+    - Character 1 - Line 1
+    sprite: {fileID: 7896879507418422366, guid: d5cae3107cb591fc6823c1db52c0a4cb, type: 3}
 --- !u!114 &654645326
 MonoBehaviour:
   m_ObjectHideFlags: 0

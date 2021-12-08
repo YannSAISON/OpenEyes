@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentences = new Queue<string>();
+    private Queue<Dialogue> dialogues = new Queue<Dialogue>();
     public Text nameText;
     public Text dialogueText;
     public Image dialogueImage;
@@ -15,15 +16,33 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
     }
 
-    public void StartDialogue(Dialogue dialogue) {
+    public void StartDialogue(Dialogue[] dialogue) {
         animator.SetBool("IsOpen", true);
 
         sentences.Clear();
 
+        foreach (Dialogue dial in dialogue)
+        {
+            dialogues.Enqueue(dial);
+        }
+        NextDialogue();
+    }
+
+    private void NextDialogue()
+    {
+        if (dialogues.Count == 0)
+        {
+            EndDialogue();
+            return;
+        }
+
+        Dialogue dialogue = dialogues.Dequeue();
+
         nameText.text = dialogue.name;
         dialogueImage.sprite = dialogue.sprite;
 
-        foreach(string sentence in dialogue.sentences) {
+        foreach (string sentence in dialogue.sentences)
+        {
             sentences.Enqueue(sentence);
         }
 
@@ -32,7 +51,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence() {
         if (sentences.Count == 0) {
-            EndDialogue();
+            NextDialogue();
             return;
         }
 
