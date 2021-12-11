@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 119310884}
   - component: {fileID: 119310883}
   - component: {fileID: 119310885}
+  - component: {fileID: 119310886}
   m_Layer: 0
   m_Name: '[Manager]'
   m_TagString: Untagged
@@ -199,6 +200,19 @@ MonoBehaviour:
   listAchievementItemManagers: []
   achievementItemPrefab: {fileID: 4160991118634321737, guid: 8890a5f1797fa4f118434b4825d2f5b4, type: 3}
   content: {fileID: 119310882}
+--- !u!114 &119310886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119310881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799f495be93e4814a268a0f76aaedd9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 97551159e834b4a0ea9619f267c750f1, type: 2}
 --- !u!1 &221962168
 GameObject:
   m_ObjectHideFlags: 0

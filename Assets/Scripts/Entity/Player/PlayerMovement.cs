@@ -66,4 +66,8 @@ public class PlayerMovement : MonoBehaviour {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }
+    
+    private void OnTriggerEnter2D(Collider2D other) {
+        InventoryManager.Instance.AddNewGroundItem(other);
+    }
 }

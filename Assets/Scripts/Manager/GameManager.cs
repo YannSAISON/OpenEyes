@@ -19,9 +19,6 @@ public class GameManager : MonoBehaviour {
         SetupWindowsData();
         ActualScene = SceneEnum.MainMenuScene;
         LatestScene = SceneEnum.MainMenuScene;
-        DOTween.Clear(true);
-        // if (SceneManager.GetActiveScene().name != SceneEnum.OpeningScene.ToString())
-        //    SceneManager.LoadScene(ActualScene.ToString());
     }
 
     private void Update() {
@@ -87,7 +84,8 @@ public class GameManager : MonoBehaviour {
                 break;
             case SceneEnum.PauseScene:
                 break;
-            case SceneEnum.InventoryScene:
+            case SceneEnum.EquipmentScene:
+                if (Input.GetKeyDown(KeyCode.Escape)) SceneManagerController.Load(LatestScene);
                 break;
             case SceneEnum.AchievementScene:
                 if (Input.GetKeyDown(KeyCode.Escape)) SceneManagerController.Load(LatestScene);

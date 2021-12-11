@@ -62,7 +62,7 @@ public abstract class ASceneManager : MonoBehaviour {
          * - ouvrir un canvas
          * - display le prefabs du menu options
          */
-        SceneManagerController.Load(SceneEnum.InventoryScene);
+        SceneManagerController.Load(SceneEnum.EquipmentScene);
     }
 
     public void MoveToLatestScene() {

@@ -9,6 +9,6 @@ public enum SceneEnum {
     GameOverScene,
     GameWinScene,
     PauseScene,
-    InventoryScene,
+    EquipmentScene,
     AchievementScene
 }
