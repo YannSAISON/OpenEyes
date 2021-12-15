@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
+    [SerializeField]
     private int level = 1;
     public int Level {
         private set {

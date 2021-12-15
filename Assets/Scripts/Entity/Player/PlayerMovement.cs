@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour {
         jump = false;
     }
     
-    private void OnTriggerEnter2D(Collider2D other) {
-        InventoryManager.Instance.AddNewGroundItem(other);
-    }
+//    private void OnTriggerEnter2D(Collider2D other) {
+//        InventoryManager.Instance.AddNewGroundItem(other);
+//    }
 }
