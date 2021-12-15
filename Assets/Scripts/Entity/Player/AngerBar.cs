@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class AngerBar : MonoBehaviour
 {
     private float status = 0;
+    public float size = 100;
     public float Status {get {return (status);} private set {status = value;}}
     private bool isRaging = false;
     public bool IsRaging {get {return (isRaging);} private set {isRaging = value;}}
@@ -40,8 +41,8 @@ public class AngerBar : MonoBehaviour
             }
         } else {
             status += _value;
-            if (status >= 100) {
-                status = 100;
+            if (status >= size) {
+                status = size;
                 isRaging = true;
                 ExecuteActions(angryEventActions);
             }
@@ -62,7 +63,7 @@ public class AngerBar : MonoBehaviour
     }
     private void ExecuteActionsFloat(List<Action<float>> actions) {
         foreach (Action<float> action in actions) {
-            action(status / 100);
+            action(status / size);
         }
     }
     public void AddCalmEvent(Action _action) {

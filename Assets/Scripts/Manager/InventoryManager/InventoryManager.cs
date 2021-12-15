@@ -6,6 +6,8 @@ public class InventoryManager : MonoBehaviour {
     public InventoryObject inventory;
     public static InventoryManager Instance { get; private set; }
 
+    private AngerBar angerBar;
+
 
     private void Awake() {
         if (Instance == null) {
@@ -15,6 +17,8 @@ public class InventoryManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
+
+        angerBar = GameObject.FindObjectOfType<AngerBar>();
     }
 
     //TODO : mettre dans le script du player InventoryManager.Instance.OnTriggerEnter(other);
@@ -22,8 +26,9 @@ public class InventoryManager : MonoBehaviour {
         var item = other.GetComponent<GroundItem>();
 
         if (!item) return;
-        Item newItem = new Item(item.item);
-        inventory.AddItem(newItem, 1);
+        item.item.BeingUsed(angerBar);
+        //Item newItem = new Item(item.item);
+        //inventory.AddItem(newItem, 1);
         Destroy(other.gameObject);
     }
 

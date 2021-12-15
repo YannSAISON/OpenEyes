@@ -13,6 +13,8 @@ public abstract class ItemObject : ScriptableObject {
 
         return newItem;
     }
+
+    public abstract void BeingUsed(AngerBar angerBar);
 }
 
 [System.Serializable]

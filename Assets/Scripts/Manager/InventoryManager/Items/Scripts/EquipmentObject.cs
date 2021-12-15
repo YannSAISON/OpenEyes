@@ -5,4 +5,8 @@ public class EquipmentObject : ItemObject {
     private void Awake() {
         itemType = ItemTypeEnum.Equipment;
     }
+
+    public override void BeingUsed(AngerBar angerBar)
+    {
+    }
 }

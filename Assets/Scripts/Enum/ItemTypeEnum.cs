@@ -3,6 +3,7 @@ public enum ItemTypeEnum {
     Equipment,
     Full_Anger,
     Quart_Anger,
-    Default
+    Quart_Calm,
+    Default,
 }
 
