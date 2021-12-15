@@ -2417,6 +2417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 4009352201509134539, guid: 8fe8dc0a0f3494b73b53e49f07394b5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4009352201509134551, guid: 8fe8dc0a0f3494b73b53e49f07394b5c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2747,6 +2751,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1949522872}
     m_Modifications:
+    - target: {fileID: 2090979546194205226, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
+      propertyPath: m_scene
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110849081045783568, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1249990173123728011, guid: 80c7845d032aa206c8771b81b0cef2a4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2802,14 +2814,6 @@ PrefabInstance:
     - target: {fileID: 1249990173123728013, guid: 80c7845d032aa206c8771b81b0cef2a4, type: 3}
       propertyPath: m_Name
       value: Floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 2090979546194205226, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
-      propertyPath: m_scene
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6110849081045783568, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80c7845d032aa206c8771b81b0cef2a4, type: 3}
