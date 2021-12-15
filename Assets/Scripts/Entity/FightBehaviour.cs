@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FightBehaviour : MonoBehaviour
 {
@@ -60,6 +61,7 @@ public class FightBehaviour : MonoBehaviour
         } else
         {
             Debug.Log("Enemy won");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().OnDeath();
         }
         hasFighten = true;
     }

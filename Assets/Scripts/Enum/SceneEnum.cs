@@ -7,6 +7,8 @@ public enum SceneEnum {
     FirstLevelSecondPlan = 5,
     GameScene,
     GameOverScene,
+    FirstPlan = 8,
+    SecondPlan = 9,
     GameWinScene,
     PauseScene,
     EquipmentScene,

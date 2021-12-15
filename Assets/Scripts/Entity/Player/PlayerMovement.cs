@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller;
     public RuntimeAnimatorController calmAnimator;
     public RuntimeAnimatorController ragingAnimator;
+    public ChangeScenePlanManager changeScenePlanManager;
     public float runSpeed = 40f;
     public float horizontalMove = 0f;
     public bool jump = false;
@@ -24,6 +26,8 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
+        if (changeScenePlanManager == null)
+            changeScenePlanManager = GameObject.FindGameObjectWithTag("SceneChangeManager").GetComponent<ChangeScenePlanManager>();
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -70,6 +74,12 @@ public class PlayerMovement : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Object")
             InventoryManager.Instance.AddNewGroundItem(other);
+    }
+
+    public void OnDeath()
+    {
+        Debug.Log("Respawn Scene = " + changeScenePlanManager.respawnSceneId);
+        SceneManager.LoadScene(changeScenePlanManager.respawnSceneId);
     }
 
 }

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
+    private ChangeScenePlanManager changeScenePlanManager;
 
     [SerializeField]
     private int level = 1;
@@ -24,11 +25,14 @@ public class LevelManager : MonoBehaviour
         } else {
             Destroy(gameObject);
         }
+        changeScenePlanManager = FindObjectOfType<ChangeScenePlanManager>();
         DontDestroyOnLoad(gameObject);
     }
 
     public void NextLevel() {
         Level += 1;
+        Debug.Log("Active scene = " + SceneManager.GetActiveScene().buildIndex);
+        changeScenePlanManager.respawnSceneId = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

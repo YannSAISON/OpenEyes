@@ -132,11 +132,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2090979546194205226, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
       propertyPath: warpId
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2090979546194205226, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
       propertyPath: m_scene
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8355789799684724772, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
       propertyPath: m_Name
@@ -453,7 +453,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2090979546194205226, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
       propertyPath: m_scene
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6110849081045783568, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
       propertyPath: m_RootOrder

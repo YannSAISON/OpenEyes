@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CircularSawBehavior : MonoBehaviour
 {
     public bool isMoving = false;
@@ -18,7 +19,6 @@ public class CircularSawBehavior : MonoBehaviour
         if (isMoving == true)
             while (true)
             {
-                Debug.Log("Initializing move");
                 yield return StartCoroutine(MoveObject(this.transform, startPoint.position, endPoint.position, timeToBackAndForth));
                 yield return StartCoroutine(MoveObject(this.transform, endPoint.position, startPoint.position, timeToBackAndForth));
             }
@@ -46,8 +46,6 @@ public class CircularSawBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
-            Debug.Log("Player Entered");
-            // CALL PLAYER DEATH
-            //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().OnDeath();
     }
 }
