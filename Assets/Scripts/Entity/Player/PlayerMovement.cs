@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public void OnDeath()
     {
-        Debug.Log("Respawn Scene = " + changeScenePlanManager.respawnSceneId);
+        changeScenePlanManager.isPlayerDead = true;
         SceneManager.LoadScene(changeScenePlanManager.respawnSceneId);
     }
 

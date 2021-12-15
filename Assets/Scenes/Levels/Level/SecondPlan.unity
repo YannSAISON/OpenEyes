@@ -448,8 +448,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1949522872}
     m_Modifications:
     - target: {fileID: 2090979546194205226, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
+      propertyPath: warpId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090979546194205226, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
       propertyPath: m_scene
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8355789799684724772, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
       propertyPath: m_Name
@@ -836,7 +840,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2090979546194205226, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
       propertyPath: warpId
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2090979546194205226, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
       propertyPath: m_scene
@@ -978,6 +982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 4009352201509134539, guid: 8fe8dc0a0f3494b73b53e49f07394b5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4009352201509134551, guid: 8fe8dc0a0f3494b73b53e49f07394b5c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1076,6 +1084,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6110849081045783568, guid: 1990ac8860ededb449f01c8b4ca0baf4, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249990173123728011, guid: 80c7845d032aa206c8771b81b0cef2a4, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
@@ -1243,9 +1255,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scene: 0
   m_warpId: 0
+  respawnSceneId: 0
   player: {fileID: 0}
   warpArray: []
   currentWarpId: 0
+  isPlayerDead: 0
 --- !u!4 &1212225301
 Transform:
   m_ObjectHideFlags: 0
