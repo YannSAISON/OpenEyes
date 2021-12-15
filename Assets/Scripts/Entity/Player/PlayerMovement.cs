@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour {
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
-        InventoryManager.Instance.AddNewGroundItem(other);
+        if (other.tag == "Object")
+            InventoryManager.Instance.AddNewGroundItem(other);
     }
 }

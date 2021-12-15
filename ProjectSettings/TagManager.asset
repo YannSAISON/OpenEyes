@@ -9,6 +9,7 @@ TagManager:
   - Warp
   - SceneChangeManager
   - HiddenPlayer
+  - Object
   layers:
   - Default
   - TransparentFX
