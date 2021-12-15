@@ -145,6 +145,9 @@ Material:
     - CurrentAlpha: 0
     - Vector1_566da076d29d4e0aaada4d7c8937810a: 0.0015
     - Vector1_7ca0674c82094aa9830f82c973e6e428: 0
+    - Vector1_afee73cf751a4e408a8fd95673c4e8c7: 1
+    - Vector1_b0917cd80f9e44ef8e5bd060f773a968: 1920
+    - Vector1_b1d08db2770c48a8bc9bcdb723f4070b: 200
     - Vector1_f0a6a6558fad4394ab543419f731eac1: 1000
     - _AORemapMax: 1
     - _AORemapMin: 0
