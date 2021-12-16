@@ -23,7 +23,8 @@ public class CirclingPlatform : MonoBehaviour
     {
         alpha += Time.deltaTime * speed;
         alpha %= 360;
-
+        if (basePoint == null)
+            Destroy(this.gameObject);
         this.transform.position = basePoint.position + new Vector3(Mathf.Cos(alpha * Mathf.Deg2Rad) * radius, Mathf.Sin(alpha * Mathf.Deg2Rad) * radius, this.transform.position.z);
     }
 }
