@@ -27,9 +27,11 @@ public class FightBehaviour : MonoBehaviour
         if (foe != null)
         {
             if (angerBar.IsRaging)
-                ResolveFight(foe.gameObject, 0);
+                Destroy(foe.transform.parent.gameObject);
+//                ResolveFight(foe.gameObject, 0);
             if (foe.GetComponent<EnemyBehaviour>().IsPlayerSeen() == true)
-                ResolveFight(foe.gameObject, 0);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().OnDeath();
+//                ResolveFight(foe.gameObject, 0);
             else if (Input.GetKeyDown(KeyCode.F))
                 ResolveFight(foe.gameObject, 1);
         }
