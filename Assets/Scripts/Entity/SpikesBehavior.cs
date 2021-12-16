@@ -7,8 +7,6 @@ public class SpikesBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
-            Debug.Log("Player Entered");
-            // CALL PLAYER DEATH
-            //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().OnDeath();
     }
 }

@@ -10,6 +10,8 @@ public class ChangeScenePlanManager : MonoBehaviour
     public SceneEnum m_scene;
     public int m_warpId;
 
+    public int respawnSceneId;
+
     public GameObject player;
     public GameObject[] warpArray;
 
@@ -26,12 +28,22 @@ public class ChangeScenePlanManager : MonoBehaviour
             instance = this;
         }
         else if (instance != null)
+        {
             Destroy(gameObject);
+            return;
+        }
 
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
         if (warpArray.Length == 0)
             warpArray = GameObject.FindGameObjectsWithTag("Warp");
+        if (respawnSceneId == 0)
+        {
+            respawnSceneId = SceneManager.GetActiveScene().buildIndex;
+            Debug.Log("Respawn scene erased, replacing by" + respawnSceneId);
+        }
+        DontDestroyOnLoad(gameObject);
+
     }
 
     void OnEnable()

@@ -3148,6 +3148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_scene: 0
   m_warpId: 0
+  respawnSceneId: 0
   player: {fileID: 0}
   warpArray: []
   currentWarpId: 0
@@ -3720,6 +3721,10 @@ PrefabInstance:
     - target: {fileID: 4009352201509134539, guid: 8fe8dc0a0f3494b73b53e49f07394b5c, type: 3}
       propertyPath: m_Name
       value: InventoryDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009352201509134539, guid: 8fe8dc0a0f3494b73b53e49f07394b5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4009352201509134551, guid: 8fe8dc0a0f3494b73b53e49f07394b5c, type: 3}
       propertyPath: m_Pivot.x
@@ -4370,7 +4375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5419253570843111551, guid: 5b0a44b222b1df44fb530ccc1acb314e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5419253570843111551, guid: 5b0a44b222b1df44fb530ccc1acb314e, type: 3}
       propertyPath: m_LocalScale.x
@@ -4508,6 +4513,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 250566828}
     m_Modifications:
+    - target: {fileID: 8116497503008483089, guid: d78c831c14a7bb0a687f0b374b1894c3, type: 3}
+      propertyPath: changeScenePlanManager
+      value: 
+      objectReference: {fileID: 1294226792}
     - target: {fileID: 8116497503008483096, guid: d78c831c14a7bb0a687f0b374b1894c3, type: 3}
       propertyPath: m_Name
       value: Player

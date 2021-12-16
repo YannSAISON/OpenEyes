@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EquipmentScene.unity
     guid: 253714546b7544dfdba90f75cf233758
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level/FirstPlan.unity
+    guid: 59563f088502c404bae7118896b7b911
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level/SecondPlan.unity
+    guid: 15c86d5f9a30c65419eaa86c87a9e07d
   m_configObjects: {}
