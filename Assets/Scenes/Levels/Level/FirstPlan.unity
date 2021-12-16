@@ -968,7 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7adf4159d99ecd4b81a28c2c8ea55a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 6
+  level: 1
 --- !u!4 &429983168
 Transform:
   m_ObjectHideFlags: 0
@@ -3181,6 +3181,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1626170861088609279, guid: 1d6ec04ff58429a4eb495b8604510c8e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626170861088609279, guid: 1d6ec04ff58429a4eb495b8604510c8e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626170861088609279, guid: 1d6ec04ff58429a4eb495b8604510c8e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626170861088609279, guid: 1d6ec04ff58429a4eb495b8604510c8e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
       objectReference: {fileID: 0}
@@ -3333,6 +3345,7 @@ MonoBehaviour:
   player: {fileID: 0}
   warpArray: []
   currentWarpId: 0
+  isPlayerDead: 0
 --- !u!1001 &1303675302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4517,7 +4530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5419253570843111551, guid: 5b0a44b222b1df44fb530ccc1acb314e, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5419253570843111551, guid: 5b0a44b222b1df44fb530ccc1acb314e, type: 3}
       propertyPath: m_LocalScale.x

@@ -7,6 +7,9 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private FovTest fieldOfView;
     public Transform startPoint;
     public Transform endPoint;
+
+    private bool m_FacingRight = true; // For determining which way the player is currently facing.
+
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -36,11 +39,28 @@ public class EnemyBehaviour : MonoBehaviour
             thisTransform.position = Vector3.Lerp(startPos, endPos, i);
             thisTransform.position = new Vector3(thisTransform.position.x, y, thisTransform.position.z);
             if (x < thisTransform.position.x)
+            {
+                if (!m_FacingRight)
+                    Flip();
                 fieldOfView.baseAngle = 45f;
+            }
             else
+            {
+                if (m_FacingRight)
+                    Flip();
                 fieldOfView.baseAngle = 225f;
+            }
             yield return null;
         }
+    }
+
+    private void Flip()
+    {
+        // Switch the way the player is labelled as facing.
+        m_FacingRight = !m_FacingRight;
+
+        // Multiply the player's x local scale by -1.
+        transform.localScale =  new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 
     public bool IsPlayerSeen()

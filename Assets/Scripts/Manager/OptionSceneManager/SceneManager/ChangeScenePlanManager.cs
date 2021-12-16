@@ -18,6 +18,8 @@ public class ChangeScenePlanManager : MonoBehaviour
     public int currentWarpId;
     private bool isFirstAwakening = true;
 
+    public bool isPlayerDead = false;
+
     void Awake()
     {
         //GameObject[] objs = GameObject.FindGameObjectsWithTag("SceneChangeManager");
@@ -66,11 +68,19 @@ public class ChangeScenePlanManager : MonoBehaviour
             return;
         }
         player = GameObject.FindGameObjectWithTag("Player");
+        
+        if (isPlayerDead == true)
+        {
+            Debug.Log("Player is dead");
+            isPlayerDead = false;
+            return;
+        }
         warpArray = GameObject.FindGameObjectsWithTag("Warp");
         foreach (GameObject warp in warpArray)
         {
             if (warp.GetComponent<Warp>().warpId == currentWarpId)
             {
+                Debug.Log("Putting player on warp position");
                 player.transform.position = new Vector3(warp.transform.position.x, warp.transform.position.y, 0);
                 break;
             }
