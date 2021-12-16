@@ -122,8 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4aad3d001c8fe4ea771fee002c1c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpId: 0
-  m_scene: 5
+  warpId: 1
+  m_scene: 6
   key: 101
 --- !u!210 &5117841277710967477
 SortingGroup:

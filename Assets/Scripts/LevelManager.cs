@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel() {
         Level += 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene((int) SceneEnum.FirstPlan);
     }
 
     public void ResetLevel() {
